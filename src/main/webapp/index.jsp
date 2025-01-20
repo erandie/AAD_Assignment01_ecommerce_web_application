@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - E-Commerce</title>
+
     <style>
         body {
             background-color: #280f01;
@@ -137,7 +138,7 @@
             </p>
 
             <div class="register-link">
-                Don't you have an account? <a href="UserAuthentication.jsp">Register here</a>
+                Don't you have an account? <a href="CategorySave.jsp">Register here</a>
             </div>
 
         </form>

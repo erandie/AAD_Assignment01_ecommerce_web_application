@@ -1,4 +1,5 @@
-<%--
+<%@ page import="org.example.e_commerce_web_application_assignment_01.DTO.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: erandi
   Date: 1/19/25
@@ -9,6 +10,7 @@
 <html>
 <head>
     <title>User Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -148,6 +150,42 @@
         <div class="col-md-6">
             <img src="https://i.pinimg.com/736x/7d/7b/c7/7d7bc7c585304f69c3c767d04e7935ea.jpg" alt="Image" class="img-fluid">
         </div>
+
+        <h1> User Table </h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%
+                    List<User> users = (List<User>) request.getAttribute("users");
+                    if (users != null) {
+                        for (User user : users) {
+                %>
+
+                <tr>
+                    <td> <%= user.getUser_id()%></td>
+                    <td> <%= user.getName()%></td>
+                    <td> <%= user.getUserName()%></td>
+                    <td> <%= user.getEmail()%></td>
+                    <td> <%= user.getRole()%></td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
+
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
 

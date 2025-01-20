@@ -1,4 +1,4 @@
-package org.example.e_commerce_web_application_assignment_01.User;
+package org.example.e_commerce_web_application_assignment_01.AdminFeatures.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -58,13 +58,10 @@ public class UserSaveServlet extends HttpServlet {
                 );
             }
 
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
