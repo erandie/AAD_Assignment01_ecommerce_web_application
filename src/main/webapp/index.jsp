@@ -138,7 +138,7 @@
             </p>
 
             <div class="register-link">
-                Don't you have an account? <a href="CategorySave.jsp">Register here</a>
+                Don't you have an account? <a href="ItemSave.jsp">Register here</a>
             </div>
 
         </form>

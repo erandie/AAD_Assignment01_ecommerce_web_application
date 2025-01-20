@@ -129,19 +129,14 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" name="category_id">
-                        Product Category
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                        <li><a class="dropdown-item" href="#">3</a></li>
-                    </ul>
+            <div class="row g-3 align-items-center mt-4">
+                <div class="col-md-4">
+                    <label id="categoryId" for="categories" class="form-label">Category ID</label>
+                    <select id="categories" aria-label="Default select example" class="form-select" name="category_id">
+                        <!--                        <option value="" selected>Select Customer ID</option>-->
+                    </select>
                 </div>
             </div>
-
             <div class="d-flex justify-content-end mt-3">
                 <button id="item_getAll_btn" type="button" class="btn btn-secondary btn-sm custom-btn">Get All</button>
                 <div class="row">
@@ -172,5 +167,18 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="lib/jquery-3.7.1.min.js"></script>
+<script>
+
+    function loadCategoryId() {
+        $(#categories).empty();
+        $(#categories).append('<option value="">Select a Category</option>');
+
+
+
+    }
+
+</script>
+
 </body>
 </html>
