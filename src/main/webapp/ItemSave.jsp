@@ -1,4 +1,5 @@
-<%--
+<%@ page import="org.example.e_commerce_web_application_assignment_01.DTO.Category" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: erandi
   Date: 1/20/25
@@ -131,12 +132,11 @@
 
             <div class="row g-3 align-items-center mt-4">
                 <div class="col-md-4">
-                    <label id="categoryId" for="categories" class="form-label">Category ID</label>
-                    <select id="categories" aria-label="Default select example" class="form-select" name="category_id">
-                        <!--                        <option value="" selected>Select Customer ID</option>-->
-                    </select>
+                    <label id="categoryId" for="categoryDropdown" class="form-label">Category: </label>
+                    <select id="categoryDropdown" aria-label="Default select example" class="form-select" name="category_id" required></select>
                 </div>
             </div>
+
             <div class="d-flex justify-content-end mt-3">
                 <button id="item_getAll_btn" type="button" class="btn btn-secondary btn-sm custom-btn">Get All</button>
                 <div class="row">
@@ -145,40 +145,33 @@
                     </div>
                 </div>
             </div>
-            <div class="table-responsive mt-4">
-                <table class="table table-dark table-striped-columns">
-                    <thead>
-                    <tr>
-                        <th scope="col">Item ID</th>
-                        <th scope="col">Item Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Unit Price</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody id="itemTableBody"></tbody>
-                </table>
-                <p class="placeholder-glow">
-                    <span class="placeholder col-12"></span>
-                </p>
-            </div>
         </form>
     </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="lib/jquery-3.7.1.min.js"></script>
+
 <script>
+    async function loadCategories() {
+        const response = await fetch("GetCategories");
+        const categories = await response.json();
 
-    function loadCategoryId() {
-        $(#categories).empty();
-        $(#categories).append('<option value="">Select a Category</option>');
+        const dropdown = document.getElementById("categoryDropdown");
+        dropdown.innerHTML = "<option value=''>Select a Category</option>";
 
-
-
+        categories.forEach(category => {
+            const option = document.createElement("option");
+            option.value = category.categoryId;
+            option.textContent = category.categoryName;
+            dropdown.appendChild(option);
+        });
     }
 
+    window.onload = loadCategories;
 </script>
 
 </body>
 </html>
+
+
+

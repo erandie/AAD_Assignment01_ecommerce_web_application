@@ -127,7 +127,7 @@
             </p>
             <input type="text" class="form-control" placeholder="Name" required>
             <input type="password" class="form-control" placeholder="Password" required> <br>
-            <a href="Customer.jsp" class="btn btn-login">Login</a>
+            <a href="CustomerSave.jsp" class="btn btn-login">Login</a>
             <button type="submit" class="btn btn-login" href="Customer.jsp">Login</button>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
@@ -138,7 +138,7 @@
             </p>
 
             <div class="register-link">
-                Don't you have an account? <a href="ItemSave.jsp">Register here</a>
+                Don't you have an account? <a href="AdminDashboard.jsp">Register here</a>
             </div>
 
         </form>

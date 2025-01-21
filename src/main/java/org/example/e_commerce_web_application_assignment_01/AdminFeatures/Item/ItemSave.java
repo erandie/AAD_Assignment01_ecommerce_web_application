@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jdk.jfr.Category;
+import org.example.e_commerce_web_application_assignment_01.DTO.Category;
 
 import java.io.IOException;
 import java.sql.*;
@@ -58,7 +58,6 @@ public class ItemSave extends HttpServlet {
             }
         }
 
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(
@@ -84,13 +83,11 @@ public class ItemSave extends HttpServlet {
                         "ItemSave.jsp?message=Failed To Add Product!! :("
                 );
             }
-
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
+
 }

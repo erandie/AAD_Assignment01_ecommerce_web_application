@@ -1,3 +1,4 @@
+/*
 package org.example.e_commerce_web_application_assignment_01.AdminFeatures.User;
 
 import jakarta.servlet.ServletException;
@@ -12,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "UserGetServlet", value = "/UserAuthrentication")
+@WebServlet(name = "UserGetServlet", value = "/LoadAllUsers")
 public class UserGetServlet extends HttpServlet {
     String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
     String DATABASE_USER = "root";
@@ -54,4 +55,8 @@ public class UserGetServlet extends HttpServlet {
         req.setAttribute("users", users);
         req.getRequestDispatcher("UserAuthentication.jsp").forward(req, resp);
     }
+
+
+
 }
+*/

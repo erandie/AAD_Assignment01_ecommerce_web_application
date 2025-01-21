@@ -138,9 +138,13 @@
                 </div>
 
                 <!-- Submit Button -->
-                <div class="row">
-                    <div class="col-sm-10 offset-sm-2">
-                        <button type="submit" class="btn btn-primary">Register</button>
+                <div class="d-flex justify-content-end mt-3">
+                    <button id="item_getAll_btn" type="button" class="btn btn-secondary btn-sm custom-btn" onclick="navigateToUsersPage()">Get All</button>
+
+                    <div class="row">
+                        <div class="col-sm-10 offset-sm-2">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -151,43 +155,15 @@
             <img src="https://i.pinimg.com/736x/7d/7b/c7/7d7bc7c585304f69c3c767d04e7935ea.jpg" alt="Image" class="img-fluid">
         </div>
 
-        <h1> User Table </h1>
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-                <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                </tr>
-                </thead>
-                <tbody>
-                <%
-                    List<User> users = (List<User>) request.getAttribute("users");
-                    if (users != null) {
-                        for (User user : users) {
-                %>
-
-                <tr>
-                    <td> <%= user.getUser_id()%></td>
-                    <td> <%= user.getName()%></td>
-                    <td> <%= user.getUserName()%></td>
-                    <td> <%= user.getEmail()%></td>
-                    <td> <%= user.getRole()%></td>
-                </tr>
-                <%
-                        }
-                    }
-                %>
-
-                </tbody>
-            </table>
-        </div>
-
     </div>
 </div>
+
+<script>
+    function navigateToUsersPage() {
+        window.location.href = '/LoadAllUsers'; // Replace '/users' with the actual path to your "Load All Users" page.
+    }
+</script>
+
 
 </body>
 </html>
