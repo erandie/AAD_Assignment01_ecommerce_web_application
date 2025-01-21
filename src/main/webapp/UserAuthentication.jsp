@@ -139,7 +139,7 @@
 
                 <!-- Submit Button -->
                 <div class="d-flex justify-content-end mt-3">
-                    <button id="item_getAll_btn" type="button" class="btn btn-secondary btn-sm custom-btn" onclick="navigateToUsersPage()">Get All</button>
+                    <a href="LoadAllUsers"> All Users </a>
 
                     <div class="row">
                         <div class="col-sm-10 offset-sm-2">
@@ -157,13 +157,6 @@
 
     </div>
 </div>
-
-<script>
-    function navigateToUsersPage() {
-        window.location.href = '/LoadAllUsers'; // Replace '/users' with the actual path to your "Load All Users" page.
-    }
-</script>
-
 
 </body>
 </html>

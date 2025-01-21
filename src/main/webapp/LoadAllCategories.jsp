@@ -1,0 +1,51 @@
+<%@ page import="org.example.e_commerce_web_application_assignment_01.DTO.Category" %>
+<%@ page import="java.util.List" %><%--
+  Created by IntelliJ IDEA.
+  User: erandi
+  Date: 1/21/25
+  Time: 5:16 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<form action="GetCategories" method="get">
+    <h1> Category Table </h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                List<Category> categories = (List<Category>) request.getAttribute("categories");
+                if (categories != null) {
+                    for (Category category : categories) {
+            %>
+
+            <tr>
+                <td> <%= category.getCategoryId()%></td>
+                <td> <%= category.getCategoryName()%></td>
+                <td> <%= category.getDescription()%></td>
+            </tr>
+            <%
+                    }
+                }
+            %>
+
+            </tbody>
+        </table>
+    </div>
+</form>
+
+
+</body>
+</html>

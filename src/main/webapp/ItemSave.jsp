@@ -138,7 +138,7 @@
             </div>
 
             <div class="d-flex justify-content-end mt-3">
-                <button id="item_getAll_btn" type="button" class="btn btn-secondary btn-sm custom-btn">Get All</button>
+                <a href="LoadAllItems"> All Items </a>
                 <div class="row">
                     <div class="col-sm-10 offset-sm-2">
                         <button type="submit" class="btn btn-primary">Save</button>

@@ -1,6 +1,6 @@
-/*
 package org.example.e_commerce_web_application_assignment_01.AdminFeatures.User;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -37,26 +37,26 @@ public class UserGetServlet extends HttpServlet {
 
             while (resultSet.next()) {
                 User user = new User(
-                        resultSet.getInt("user_id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("userName"),
-                        resultSet.getString("email"),
-                        resultSet.getString("role")
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5)
                 );
                 users.add(user);
             }
+
+            req.setAttribute("users", users);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher("LoadAllUsers.jsp");
+
+            dispatcher.forward(req, resp);
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("UserAuthentication.jsp").forward(req, resp);
     }
 
-
-
 }
-*/
