@@ -8,25 +8,50 @@
 
     <style>
         body {
-            background-color: #280f01;
+            background-color: #2f1101;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.6), /* Dark shadow effect */
+                    rgba(0, 0, 0, 0.6)
+            ),
+            url('https://i.pinimg.com/736x/f3/04/b3/f304b3b1c9f9c107f626ade2dce152c9.jpg'); /* Replace with your image URL */
+            background-size: cover;
+        }
+
+        .video-background{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        #bg-video{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .login-container {
             display: flex;
-            background-color: #674330;
+            background-color: #412b1e;
             width: 85vw;
             height: 42vw;
             border-radius: 20px;
-            box-shadow: 0px 10px 30px rgba(21, 21, 21, 0.4), 0px 4px 15px rgba(235, 229, 229, 0.3);
+            box-shadow: 0px 10px 30px rgba(15, 0, 0, 0.8), 0px 4px 15px rgba(31, 2, 2, 0.8);
         }
 
         .login-title {
-            color: #280101;
+            color: #230000;
             font-family: 'Georgia', serif;
             font-size: 60px;
             font-weight: bold;
@@ -41,10 +66,11 @@
         .image-container {
             width: 40%; /* Adjust the image container width */
             background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.6), /* Dark shadow effect */
-                    rgba(0, 0, 0, 0.6)
+                    rgba(0, 0, 0, 0.5), /* Dark shadow effect */
+                    rgba(0, 0, 0, 0.5)
             ),
-            url('https://i.pinimg.com/736x/e6/1c/1e/e61c1e4222cebf7829f3d6a893eca8b3.jpg'); /* Replace with your image URL */
+            /*url('https://i.pinimg.com/736x/e6/1c/1e/e61c1e4222cebf7829f3d6a893eca8b3.jpg'); !* Replace with your image URL *!*/
+            url('https://i.pinimg.com/736x/36/45/ae/3645ae587282a61c55ef57ec57f3e5a4.jpg'); /* Replace with your image URL */
             background-size: cover;
             background-position: center;
             border-radius: 20px 0 0 20px; /* Rounded left corners */
@@ -107,43 +133,51 @@
     </style>
 </head>
 <body>
-<div class="login-container">
-    <div class="image-container"></div> <!-- Image on the left -->
-    <div class="form-container">
-        <form>
-            <div class="login-title">Novel Escape Book Shop</div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
-                eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
-                Inventore, quisquam? Lorem ipsum dolor sit amet, <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus atque commodi, corporis dolorum ea
-                eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
-                Inventore, quisquam? Lorem ipsum dolor sit amet, <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus atque commodi, corporis dolorum ea
-                eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
-                Inventore, quisquam? Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit. Deleniti, provident sed.
-                Accusamus eaque facere labore pariatur praesentium quidem rem repellat ut veniam! Adipisci expedita
-                itaque nam quidem quod tempore, ullam? <br>Lorem ipsum dolor sit amet,
-            </p>
-            <input type="text" class="form-control" placeholder="Name" required>
-            <input type="password" class="form-control" placeholder="Password" required> <br>
-            <a href="CustomerSave.jsp" class="btn btn-login">Login</a>
-            <button type="submit" class="btn btn-login" href="Customer.jsp">Login</button>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
-                eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
-                Inventore, quisquam? Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit. Deleniti, provident sed.
-                Accusamus eaque facere labore pariatur praesentium quidem rem repellat ut veniam! Adipisci expedita
-                itaque nam quidem quod tempore, ullam?
-            </p>
 
-            <div class="register-link">
-                Don't you have an account? <a href="AdminDashboard.jsp">Register here</a>
-            </div>
+<%--<div class="video-background">
+    <video autoplay muted loop id="bg-video">
+        <source src="" type="video/mp4">
 
-        </form>
+    </video>
+</div>--%>
+
+    <div class="login-container">
+        <div class="image-container"></div> <!-- Image on the left -->
+        <div class="form-container">
+            <form>
+                <div class="login-title">Novel Escape Book Shop</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
+                    eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
+                    Inventore, quisquam? Lorem ipsum dolor sit amet, <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Accusamus atque commodi, corporis dolorum ea
+                    eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
+                    Inventore, quisquam? Lorem ipsum dolor sit amet, <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Accusamus atque commodi, corporis dolorum ea
+                    eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
+                    Inventore, quisquam? Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit. Deleniti, provident sed.
+                    Accusamus eaque facere labore pariatur praesentium quidem rem repellat ut veniam! Adipisci expedita
+                    itaque nam quidem quod tempore, ullam? <br>Lorem ipsum dolor sit amet,
+                </p>
+                <input type="text" class="form-control" placeholder="Name" required>
+                <input type="password" class="form-control" placeholder="Password" required> <br>
+                <a href="CustomerSave.jsp" class="btn btn-login">Login</a>
+                <button type="submit" class="btn btn-login" href="Customer.jsp">Login</button>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
+                    eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
+                    Inventore, quisquam? Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit. Deleniti, provident sed.
+                    Accusamus eaque facere labore pariatur praesentium quidem rem repellat ut veniam! Adipisci expedita
+                    itaque nam quidem quod tempore, ullam?
+                </p>
+
+                <div class="register-link">
+                    Don't you have an account? <a href="AdminDashboard.jsp">Register here</a>
+                </div>
+
+            </form>
+        </div>
     </div>
-</div>
 </body>
 </html>
 

@@ -23,6 +23,7 @@ public class LoadCategoryTable extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Category> categories = new ArrayList<>();
 
+        String searchTerm = req.getParameter("searchTerm");
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -32,9 +33,20 @@ public class LoadCategoryTable extends HttpServlet {
                     DATABASE_PASSWORD
             );
 
-            String sql = "SELECT * FROM categories";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            String sql;
+            if (searchTerm != null && !searchTerm.isEmpty()) {
+                // If searchTerm is provided, search categories by name
+                sql = "SELECT * FROM categories WHERE category_name LIKE ?";
+            } else {
+                // If no searchTerm is provided, retrieve all categories
+                sql = "SELECT * FROM categories";
+            }
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            if (searchTerm != null && !searchTerm.isEmpty()) {
+                statement.setString(1, "%" + searchTerm + "%");
+            }
+            ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 Category category = new Category(
@@ -49,7 +61,6 @@ public class LoadCategoryTable extends HttpServlet {
             req.setAttribute("categories", categories);
 
             RequestDispatcher dispatcher = req.getRequestDispatcher("LoadAllCategories.jsp");
-
             dispatcher.forward(req, resp);
 
         } catch (SQLException e) {
@@ -57,6 +68,5 @@ public class LoadCategoryTable extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

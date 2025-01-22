@@ -16,6 +16,15 @@
 
 <form action="LoadCategoryTable" method="get">
     <h1> Category Table </h1>
+
+    <div>
+        <label for="searchTerm">Search by Category Name:</label>
+        <input type="text" id="searchTerm" name="searchTerm" placeholder="Enter category name">
+        <button type="submit">Search</button>
+    </div>
+
+</form>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">
             <thead class="table-dark">
@@ -45,8 +54,6 @@
             </tbody>
         </table>
     </div>
-
-</form>
 
 
 </body>
