@@ -115,7 +115,9 @@
             </div>
 
             <div class="d-flex justify-content-end mt-3">
-                <a href="GetCategories"> All Categories </a>
+                <a href="LoadCategoryTable"> All Categories </a> <br>
+                <a href="update_category"> Update Categories </a>
+                <a href="delete_category"> Delete Categories </a>
                 <div class="row">
                     <div class="col-sm-10 offset-sm-2">
                         <button type="submit" class="btn btn-primary">Save</button>

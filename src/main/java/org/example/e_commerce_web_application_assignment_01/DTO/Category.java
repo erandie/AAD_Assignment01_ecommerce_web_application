@@ -11,10 +11,12 @@ import lombok.Setter;
 public class Category {
     private int categoryId;
     private String categoryName;
+    private String description;
 
-    public Category(int categoryId, String categoryName) {
+    public Category(int categoryId, String categoryName, String description) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
+        this.description = description;
     }
 
     public int getCategoryId() {
@@ -23,5 +25,9 @@ public class Category {
 
     public String getCategoryName() {
         return categoryName;
+    }
+
+    public String getCategoryDescription() {
+        return description;
     }
 }

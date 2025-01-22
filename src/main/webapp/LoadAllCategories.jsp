@@ -10,10 +10,11 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<form action="GetCategories" method="get">
+<form action="LoadCategoryTable" method="get">
     <h1> Category Table </h1>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">

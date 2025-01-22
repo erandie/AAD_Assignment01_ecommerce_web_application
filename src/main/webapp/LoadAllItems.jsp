@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<form action="LoadAllUsers" method="get">
+<form action="LoadAllItems" method="get">
     <h1> Item Table </h1>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">

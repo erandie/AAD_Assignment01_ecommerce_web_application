@@ -21,8 +21,6 @@ public class GetCategoriesServlet extends HttpServlet {
     private static final String DATABASE_PASSWORD = "Ijse@1234";
 
 
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
@@ -31,12 +29,12 @@ public class GetCategoriesServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
-            String sql = "SELECT category_id, category_name FROM categories";
+            String sql = "SELECT category_id, category_name, description FROM categories";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Category category = new Category(resultSet.getInt("category_id"), resultSet.getString("category_name"));
+                Category category = new Category(resultSet.getInt("category_id"), resultSet.getString("category_name"), resultSet.getString("description"));
                 categories.add(category);
             }
 

@@ -139,6 +139,8 @@
 
             <div class="d-flex justify-content-end mt-3">
                 <a href="LoadAllItems"> All Items </a>
+                <a href="Item_Update"> Update Items </a>
+                <a href="delete_item"> Delete Items </a>
                 <div class="row">
                     <div class="col-sm-10 offset-sm-2">
                         <button type="submit" class="btn btn-primary">Save</button>
