@@ -1,8 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: erandi
+  Date: 1/22/25
+  Time: 10:33 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>View Categories</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body{
@@ -105,7 +112,7 @@
     <h1 style="text-align: center"> Categories </h1>
     <div class="container">
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/736x/a2/69/4e/a2694ef516357a338fdcb7a0857a438c.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -114,7 +121,7 @@
         </div>
 
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/474x/c4/f6/49/c4f649ee577787fb43d201eee6f5b89a.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -123,7 +130,7 @@
         </div>
 
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/474x/5d/49/c8/5d49c826dbfdfa3910abf3171da195a7.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -132,7 +139,7 @@
         </div>
 
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/736x/5a/13/49/5a1349d181e0ca5987d7853175bb56cf.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -141,7 +148,7 @@
         </div>
 
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/736x/5a/13/49/5a1349d181e0ca5987d7853175bb56cf.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -150,7 +157,7 @@
         </div>
 
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/474x/fa/76/9a/fa769acb780d7d0b230f1ad0348a7430.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -159,7 +166,7 @@
         </div>
 
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/474x/fa/76/9a/fa769acb780d7d0b230f1ad0348a7430.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -168,7 +175,7 @@
         </div>
 
         <div class="card">
-            <img src="../AdminFeatures/images/Book_1.jpg" height="200px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/474x/fa/76/9a/fa769acb780d7d0b230f1ad0348a7430.jpg" height="250px" width="250px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

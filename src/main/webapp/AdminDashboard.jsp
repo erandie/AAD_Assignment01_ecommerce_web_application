@@ -139,6 +139,7 @@
     <a href="CategorySave.jsp">Category Management</a><br>
     <a href="#">Order Management</a><br>
     <a href="UserAuthentication.jsp">User Management</a><br>
+    <a href="CategoryView.jsp">View Categories</a><br>
 
     <ul class="category-list">
         <li><a href="#">Novels</a></li>
