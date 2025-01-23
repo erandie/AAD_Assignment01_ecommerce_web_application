@@ -42,7 +42,7 @@ public class UserGetServlet extends HttpServlet {
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
-                        resultSet.getBytes(6)
+                        resultSet.getString(6)
                 );
                 users.add(user);
             }

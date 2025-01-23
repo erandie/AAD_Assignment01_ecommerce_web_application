@@ -8,19 +8,25 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.UUID;
 
 @WebServlet(name = "UserSaveServlet", value = "/UserAuthentication")
-@MultipartConfig(maxFileSize = 16177215)
+@MultipartConfig(maxFileSize = 169999999)
 public class UserSaveServlet extends HttpServlet {
     String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
     String DATABASE_USER = "root";
     String DATABASE_PASSWORD = "Ijse@1234";
+    private static final String UPLOAD_DIR = "uploads/images";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,6 +36,28 @@ public class UserSaveServlet extends HttpServlet {
         String role = req.getParameter("role");
         String password = req.getParameter("password");
         Part profileImage = req.getPart("profileImage");
+
+        String imagePath = null;
+        if (profileImage != null) {
+            String fileName = getFileName(profileImage);
+            String extension = getFileExtension(fileName);
+
+            String uniqueFileName = UUID.randomUUID().toString() + extension;
+            Path uploadPath = Path.of(getServletContext().getRealPath("") + File.separator + UPLOAD_DIR, uniqueFileName);
+
+            File uploadDir = new File(uploadPath.getParent().toString());
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
+
+            try (InputStream inputStream = profileImage.getInputStream()){
+                Files.copy(inputStream, uploadPath, StandardCopyOption.REPLACE_EXISTING);
+            }
+
+            imagePath = UPLOAD_DIR + "/" + uniqueFileName;
+
+        }
+
 
         if (name == null || name.isEmpty() ||
                 userName == null || userName.isEmpty() ||
@@ -55,7 +83,7 @@ public class UserSaveServlet extends HttpServlet {
                     DATABASE_PASSWORD
             );
 
-            String sql = "INSERT INTO user (name, userName, email, role, password, profile_image) VALUES (?,?,?,?,?, ?)";
+            String sql = "INSERT INTO user (name, userName, email, role, password, image_path) VALUES (?,?,?,?,?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, userName);
@@ -63,9 +91,9 @@ public class UserSaveServlet extends HttpServlet {
             preparedStatement.setString(4, role);
             preparedStatement.setString(5, password);
 
-            if (profileImage != null) {
+            if (imagePath != null) {
                 InputStream imageStream = profileImage.getInputStream();
-                preparedStatement.setBlob(6, imageStream);
+                preparedStatement.setString(6, imagePath);
             } else {
                 preparedStatement.setNull(6, java.sql.Types.BLOB);
             }
@@ -89,4 +117,21 @@ public class UserSaveServlet extends HttpServlet {
         }
 
     }
+
+    private String getFileName(Part part) {
+        String contentDisposition = part.getHeader("Content-Disposition");
+        for (String content : contentDisposition.split(";")){
+            if (content.trim().startsWith("filename")){
+                return content.substring(content.indexOf("=") + 2, content.length() - 1);
+            }
+        }
+        return null;
+    }
+
+    private String getFileExtension(String fileName) {
+        int doIndex = fileName.lastIndexOf(".");
+        return (doIndex > 0) ? fileName.substring(doIndex) : "";
+    }
+
+
 }

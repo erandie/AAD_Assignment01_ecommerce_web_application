@@ -124,7 +124,7 @@
                     </div>
                 </div>
             </div>
-            <div class="table-responsive mt-4">
+            <%--<div class="table-responsive mt-4">
                 <table class="table table-dark table-striped-columns">
                     <thead>
                     <tr>
@@ -138,7 +138,7 @@
                 </table>
                 <p class="placeholder-glow">
                     <span class="placeholder col-12"></span>
-                </p>
+                </p>--%>
             </div>
         </form>
     </div>

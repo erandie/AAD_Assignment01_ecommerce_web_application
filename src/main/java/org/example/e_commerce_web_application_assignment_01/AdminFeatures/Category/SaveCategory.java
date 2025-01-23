@@ -17,7 +17,7 @@ public class SaveCategory extends HttpServlet {
     String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
     String DATABASE_USER = "root";
     String DATABASE_PASSWORD = "Ijse@1234";
-
+    private static final String UPLOAD_DIR = "uploads/images";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

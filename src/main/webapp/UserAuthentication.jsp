@@ -86,13 +86,13 @@
     String name = (String) session.getAttribute("name");
 
     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root", "Ijse@1234");
-    String sql = "SELECT profile_image FROM user WHERE name = ?";
+    String sql = "SELECT image_path FROM user WHERE name = ?";
     PreparedStatement preparedStatement = connection.prepareStatement(sql);
     preparedStatement.setString(1, name);
     ResultSet resultSet = preparedStatement.executeQuery();
 
     if (resultSet.next()) {
-        byte[] imageBytes = resultSet.getBytes("profile_image");
+        byte[] imageBytes = resultSet.getBytes("image_path");
         String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 %>
 <img src="data:image/jpeg;base64,<%= base64Image %>" alt="Profile Image" />
@@ -161,10 +161,11 @@
                     </div>
                 </div>
 
+                <%--Profile Image--%>
                 <div class="row mb-3">
                     <label for="profileImage" class="col-sm-2 col-form-label">Profile Image</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*">
+                        <input type="file" class="form-control" id="profileImage" name="profileImage" required>
                     </div>
                 </div>
 
