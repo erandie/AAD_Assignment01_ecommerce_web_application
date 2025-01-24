@@ -45,7 +45,7 @@
             <div class="card-body">
                 <h5 class="card-title"><%= categories.getCategory_name()%></h5>
                 <p class="category-text"><%= categories.getDescription()%></p>
-                <a href="ProductByCategoryServlet?category_id=<%= categories.getCategory_id() %>" class="btn btn-primary">View Products</a>
+                <a href="ProductByCategoryServlet?categoryId=<%= categories.getCategory_id() %>" class="btn btn-primary">View Products</a>
             </div>
         </div>
 
