@@ -94,7 +94,15 @@
 </head>
 
 <body>
-<h1 style="text-align: center">Categories</h1>
+<form action="" method="get">
+
+
+
+</form>
+
+
+</body>
+<%--<h1 style="text-align: center">Categories</h1>
 <c:if test="${empty categories}">
     <p style="color: red; text-align: center;">No categories found!</p>
 </c:if>
@@ -112,7 +120,7 @@
         </c:forEach>
     </div>
 </c:if>
-</body>
+</body>--%>
 
 <%--<body>
 

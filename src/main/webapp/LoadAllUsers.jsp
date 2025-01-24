@@ -16,6 +16,8 @@
 
 <form action="LoadAllUsers" method="get">
     <h1> User Table </h1>
+
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">
             <thead class="table-dark">
@@ -25,14 +27,17 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Image</th>
             </tr>
             </thead>
             <tbody>
+
             <%
                 List<User> users = (List<User>) request.getAttribute("users");
-                if (users != null) {
+                if (users != null && !users.isEmpty()) {
                     for (User user : users) {
             %>
+
 
             <tr>
                 <td> <%= user.getUser_id()%></td>
@@ -40,14 +45,45 @@
                 <td> <%= user.getUserName()%></td>
                 <td> <%= user.getEmail()%></td>
                 <td> <%= user.getRole()%></td>
+                <td>
+                    <%
+                        String imagePath = user.getImagePath();
+                        if (imagePath != null && !imagePath.isEmpty()) {
+                    %>
+                    <img src="<%= request.getContextPath() + "/" + imagePath%>" alt="user image">
+                    <%
+                    } else {
+                    %>
+                    <p> No Image Available!</p>
+                    <%
+                        }
+                    %>
+                </td>
+                   <%-- <c:forEach var="users" items="${users}">
+                        <c:if test="${not empty user.imagePath}">
+                            <img src="${pageContext.request.contextPath}/${user.imagePath}" alt="Profile Picture" class="img-thumbnail" style="max-width: 100px;">
+                        </c:if>
+                    </c:forEach>
+                </td>
+--%>
+
+
+
             </tr>
             <%
                     }
-                }
             %>
-
             </tbody>
         </table>
+
+        <%
+            } else {
+        %>
+        <p>No Users found.</p>
+        <%
+            }
+        %>
+
     </div>
 </form>
 

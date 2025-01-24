@@ -14,10 +14,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.UUID;
 
 @WebServlet(name = "UserSaveServlet", value = "/UserAuthentication")
@@ -94,8 +91,9 @@ public class UserSaveServlet extends HttpServlet {
             if (imagePath != null) {
                 InputStream imageStream = profileImage.getInputStream();
                 preparedStatement.setString(6, imagePath);
+                System.out.println(profileImage);
             } else {
-                preparedStatement.setNull(6, java.sql.Types.BLOB);
+                preparedStatement.setNull(6, Types.VARCHAR);
             }
 
             int effectedRowCount = preparedStatement.executeUpdate();
@@ -103,6 +101,7 @@ public class UserSaveServlet extends HttpServlet {
                 resp.sendRedirect(
                         "UserAuthentication.jsp?message=User saved Successfully!"
                 );
+                System.out.println(profileImage);
             } else {
                 resp.sendRedirect(
                         "UserAuthentication.jsp?message=Failed to save User!"
