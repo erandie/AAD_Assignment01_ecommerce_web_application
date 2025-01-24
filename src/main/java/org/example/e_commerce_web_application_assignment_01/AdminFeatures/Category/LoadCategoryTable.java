@@ -52,8 +52,8 @@ public class LoadCategoryTable extends HttpServlet {
                 Category category = new Category(
                         resultSet.getInt(1),
                         resultSet.getString(2),
-                        resultSet.getString(3)
-                );
+                        resultSet.getString(3),
+                        resultSet.getString("image_path"));
 
                 categories.add(category);
             }

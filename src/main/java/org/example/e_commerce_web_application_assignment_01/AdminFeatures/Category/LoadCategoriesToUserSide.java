@@ -13,55 +13,47 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "LoadCategoriesToUserSide", value = "/LoadCategoryServlet")
+@WebServlet(name = "LoadCategoriesToUserSide", value = "/LoadCategoriesToUserSide")
 public class LoadCategoriesToUserSide extends HttpServlet {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
-    private static final String DATABASE_USER = "root";
-    private static final String DATABASE_PASSWORD = "Ijse@1234";
-
+    String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
+    String DATABASE_USER = "root";
+    String DATABASE_PASSWORD = "Ijse@1234";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Category> categories = getCategoriesFromDatabase();
-
-        System.out.println("Categories fetched: " + categories.size());
-        for (Category category : categories) {
-            System.out.println("Category: " + category.getCategoryName());
-        }
-
-
-        req.setAttribute("categories", categories);
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("CategoryView.jsp");
-        dispatcher.forward(req, resp);
-    }
-
-    private List<Category> getCategoriesFromDatabase() {
+        String sql = "SELECT * FROM categories";
         List<Category> categories = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD)){
-            System.out.println("Database Connected Successfully!");
+            System.out.println("connected to database!");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            System.out.println("query executed successfully!!");
 
-            String sql = "SELECT category_name, description, image_path FROM categories";
+            while (resultSet.next()) {
+                Category category = new Category(
+                        resultSet.getInt("category_id"),
+                        resultSet.getString("category_name"),
+                        resultSet.getString("description"),
+                        resultSet.getString("image_path")
+                );
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                ResultSet resultSet = preparedStatement.executeQuery()){
+                System.out.println("Category loaded! " + category.getCategory_name());
+                categories.add(category);
 
-                    while (resultSet.next()) {
-                       String category_name = resultSet.getString("category_name");
-                       String description = resultSet.getString("description");
-                       String image_path = resultSet.getString("image_path");
-                       categories.add(new Category(category_name, description, image_path));
+            }
 
-                        System.out.println("Fetched: " + category_name + ", " + description + ", " + image_path);
-                    }
-                }
+            System.out.println("Total categories loaded! " + categories.size());
+            req.setAttribute("categories", categories);
 
-            } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            req.setAttribute("error", "Database error occurred.");
         }
 
-        return categories;
+        RequestDispatcher dispatcher = req.getRequestDispatcher("CategoryView.jsp");
+        dispatcher.forward(req, resp);
+
     }
 }
 

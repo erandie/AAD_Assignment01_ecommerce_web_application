@@ -42,8 +42,8 @@
             %>
 
             <tr>
-                <td> <%= category.getCategoryId()%></td>
-                <td> <%= category.getCategoryName()%></td>
+                <td> <%= category.getCategory_id()%></td>
+                <td> <%= category.getCategory_name()%></td>
                 <td> <%= category.getDescription()%></td>
             </tr>
             <%

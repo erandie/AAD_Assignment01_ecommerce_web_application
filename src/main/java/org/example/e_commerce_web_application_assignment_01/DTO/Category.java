@@ -1,20 +1,20 @@
 package org.example.e_commerce_web_application_assignment_01.DTO;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class Category {
-    private int categoryId;
-    private String categoryName;
+    private int category_id;
+    private String category_name;
     private String description;
     private String image_path;
 
-    public Category(int categoryId, String categoryName, String description) {
+    /*public Category(int categoryId, String categoryName, String description, String imagePath) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.description = description;
@@ -43,5 +43,5 @@ public class Category {
 
     public String getImage_path() {
         return image_path;
-    }
+    }*/
 }

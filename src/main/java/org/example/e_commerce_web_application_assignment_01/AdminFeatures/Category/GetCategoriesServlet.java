@@ -1,6 +1,6 @@
+/*
 package org.example.e_commerce_web_application_assignment_01.AdminFeatures.Category;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -34,7 +34,7 @@ public class GetCategoriesServlet extends HttpServlet {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Category category = new Category(resultSet.getInt("category_id"), resultSet.getString("category_name"), resultSet.getString("description"));
+                Category category = new Category(resultSet.getInt("category_id"), resultSet.getString("category_name"), resultSet.getString("description"), resultSet.getString("image_path"));
                 categories.add(category);
             }
 
@@ -49,3 +49,4 @@ public class GetCategoriesServlet extends HttpServlet {
         }
     }
 }
+*/
