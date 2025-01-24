@@ -41,7 +41,8 @@ public class GetItems extends HttpServlet {
                         resultSet.getInt(3),
                         resultSet.getString(4),
                         resultSet.getDouble(5),
-                        resultSet.getInt(6)
+                        resultSet.getInt(6),
+                        resultSet.getString(7)
                 );
 
                 items.add(item);

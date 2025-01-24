@@ -1,4 +1,3 @@
-/*
 package org.example.e_commerce_web_application_assignment_01.AdminFeatures.Category;
 
 import jakarta.servlet.ServletException;
@@ -29,7 +28,7 @@ public class GetCategoriesServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
-            String sql = "SELECT category_id, category_name, description FROM categories";
+            String sql = "SELECT category_id, category_name, description, image_path FROM categories";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -49,4 +48,3 @@ public class GetCategoriesServlet extends HttpServlet {
         }
     }
 }
-*/

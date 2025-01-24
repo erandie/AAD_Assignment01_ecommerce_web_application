@@ -125,6 +125,7 @@
                 <a href="LoadCategoryTable"> All Categories </a> <br>
                 <a href="update_category"> Update Categories </a>
                 <a href="delete_category"> Delete Categories </a>
+                <a href="CategoryProfileServlet"> view Categories </a>
                 <div class="row">
                     <div class="col-sm-10 offset-sm-2">
                         <button type="submit" class="btn btn-primary">Save</button>

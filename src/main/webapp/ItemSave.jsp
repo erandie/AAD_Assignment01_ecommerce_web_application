@@ -105,7 +105,7 @@
 
 <div id="manageItems" class="container active mt-5">
     <div class="card">
-        <form action="ItemSave" method="post">
+        <form action="ItemSave" method="post" enctype="multipart/form-data">
 
             <h2 class="text-center">Manage Items</h2> <br>
 
@@ -137,6 +137,18 @@
                 </div>
             </div>
 
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="row mb-3">
+                <label for="profileImage" class="col-sm-2 col-form-label">Profile Image</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="profileImage" name="profileImage" required>
+                </div>
+            </div>
+
             <div class="d-flex justify-content-end mt-3">
                 <a href="LoadAllItems"> All Items </a>
                 <a href="Item_Update"> Update Items </a>
@@ -163,8 +175,8 @@
 
         categories.forEach(category => {
             const option = document.createElement("option");
-            option.value = category.categoryId;
-            option.textContent = category.categoryName;
+            option.value = category.category_id;
+            option.textContent = category.category_name;
             dropdown.appendChild(option);
         });
     }

@@ -139,7 +139,7 @@
     <a href="CategorySave.jsp">Category Management</a><br>
     <a href="#">Order Management</a><br>
     <a href="UserAuthentication.jsp">User Management</a><br>
-    <a href="CategoryView.jsp">View Categories</a><br>
+    <a href="categoryProfile.jsp">View Categories</a><br>
     <a href="ViewProducts.jsp">View Products</a><br>
     <a href="userProfile.jsp">View User Profiles</a><br>
 
