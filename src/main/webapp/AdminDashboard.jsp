@@ -141,6 +141,7 @@
     <a href="UserAuthentication.jsp">User Management</a><br>
     <a href="CategoryView.jsp">View Categories</a><br>
     <a href="ViewProducts.jsp">View Products</a><br>
+    <a href="userProfile.jsp">View User Profiles</a><br>
 
     <ul class="category-list">
         <li><a href="#">Novels</a></li>

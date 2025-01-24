@@ -174,6 +174,7 @@
                     <a href="LoadAllUsers"> All Users </a>
                     <a href="update_user"> Update Users </a>
                     <a href="delete_user"> Delete Users </a>
+                    <a href="UserProfileServlet"> view Users </a>
 
                     <div class="row">
                         <div class="col-sm-10 offset-sm-2">

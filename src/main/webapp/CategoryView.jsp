@@ -92,7 +92,29 @@
     </style>
 
 </head>
+
 <body>
+<h1 style="text-align: center">Categories</h1>
+<c:if test="${empty categories}">
+    <p style="color: red; text-align: center;">No categories found!</p>
+</c:if>
+<c:if test="${not empty categories}">
+    <div class="container">
+        <c:forEach var="category" items="${categories}">
+            <div class="card">
+                <img src="${category.imagePath}" height="250px" width="255px" class="card-img-top" alt="${category.categoryName}" />
+                <div class="card-body">
+                    <h5 class="card-title">${category.categoryName}</h5>
+                    <p class="card-text">${category.description}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</c:if>
+</body>
+
+<%--<body>
 
 <div class="sidebar" id="sidebar">
     <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">&times;</a>
@@ -108,20 +130,22 @@
     <span class="icon-button" onclick="toggleSidebar()">&#9776;</span>
 </div>
 
-<form class="form">
+<form class="form" action="LoadCategoryServlet" method="get">
     <h1 style="text-align: center"> Categories </h1>
     <div class="container">
         <div class="card">
-            <img src="https://i.pinimg.com/736x/a2/69/4e/a2694ef516357a338fdcb7a0857a438c.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+            <c:forEach var="category" items="${categories}">
+                <img src="${category.image_path}" height="250px" width="255px" class="card-img-top" alt="${category.category_name}"/>
+                <div class="card-body">
+                    <h5 class="card-title">${category.category_name}</h5>
+                    <p class="card-text">${category.description}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </c:forEach>
         </div>
 
         <div class="card">
-            <img src="https://i.pinimg.com/474x/c4/f6/49/c4f649ee577787fb43d201eee6f5b89a.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
+            <img src="https://i.pinimg.com/736x/a2/69/4e/a2694ef516357a338fdcb7a0857a438c.jpg" height="250px" width="255px" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -200,5 +224,5 @@
 </script>
 
 
-</body>
+</body>--%>
 </html>

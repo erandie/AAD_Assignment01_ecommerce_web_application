@@ -15,7 +15,10 @@ public class User {
     private String userName;
     private String email;
     private String role;
-    private String image_path;
+    private String password;
+    @Setter
+    @Getter
+    private String imagePath;
 
     /*private String password;*/
 }

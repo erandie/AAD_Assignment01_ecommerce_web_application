@@ -99,7 +99,7 @@
 
 <div id="manageItems" class="container active mt-5">
     <div class="card">
-        <form action="CategorySave" method="post">
+        <form action="CategorySave" method="post" enctype="multipart/form-data">
 
             <h2 class="text-center">Manage Categories</h2> <br>
 
@@ -111,6 +111,13 @@
                 <div class="col-md-6 mb-3">
                     <label for="desc-inputt-02" class="itemId">Category Description</label>
                     <input id="desc-inputt-02" type="text" class="form-control" placeholder="Category Description" name="description">
+                </div>
+                <%--Profile Image--%>
+                <div class="row mb-3">
+                    <label for="category_image" class="col-sm-2 col-form-label">Category Image</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="category_image" name="category_image" required>
+                    </div>
                 </div>
             </div>
 

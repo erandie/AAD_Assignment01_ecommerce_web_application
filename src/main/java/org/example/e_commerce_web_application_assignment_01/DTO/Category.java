@@ -12,12 +12,21 @@ public class Category {
     private int categoryId;
     private String categoryName;
     private String description;
+    private String image_path;
 
     public Category(int categoryId, String categoryName, String description) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.description = description;
+        this.image_path = image_path;
     }
+
+    public Category(String categoryName, String description, String imagePath) {
+        this.categoryName = categoryName;
+        this.description = description;
+        this.image_path = image_path;
+    }
+
 
     public int getCategoryId() {
         return categoryId;
@@ -27,7 +36,12 @@ public class Category {
         return categoryName;
     }
 
-    public String getCategoryDescription() {
+
+    public String getDescription() {
         return description;
+    }
+
+    public String getImage_path() {
+        return image_path;
     }
 }
