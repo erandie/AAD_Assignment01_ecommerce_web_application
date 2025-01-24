@@ -45,7 +45,7 @@
             <div class="card-body">
                 <h5 class="card-title"><%= categories.getCategory_name()%></h5>
                 <p class="category-text"><%= categories.getDescription()%></p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="ProductByCategoryServlet?category_id=<%= categories.getCategory_id() %>" class="btn btn-primary">View Products</a>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
         } else {
     %>
 
-    <p> Please Don't print this!!!!</p>
+    <p> No categories Found! </p>
 
     <%
         }
