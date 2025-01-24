@@ -16,6 +16,6 @@ public class Item {
     private String description;
     private Double amount;
     private int qty;
-
+    private String imagePath;
 
 }
