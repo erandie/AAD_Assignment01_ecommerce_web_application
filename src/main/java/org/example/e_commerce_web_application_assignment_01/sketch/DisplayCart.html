@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th> Product </th>
+        <th> quantity </th>
+        <th> Price </th>
+        <th> Action </th>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <form action="CartHandle" method="post">
+                <input type="number" name="quantity" value="<%= item.getQuantity()%>" min="1">
+                <input type="hidden" name="product_id" value="<%= item.getProduct_id() %>">
+                <button type="submit"> Update </button>
+            </form>
+        </td>
+        <td></td>
+        <td>
+            <form action="RemoveProductFromCart" method="post">
+                <input type="hidden" name="product_id" value="<%= item.getProduct_id()%>">
+                <button type="submit"> Remove </button>
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+<h3> Total: </h3>
+<a href="checkout.jsp">Place Order</a>
+
+</body>
+</html>

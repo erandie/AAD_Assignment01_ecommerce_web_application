@@ -134,17 +134,10 @@
 </head>
 <body>
 
-<%--<div class="video-background">
-    <video autoplay muted loop id="bg-video">
-        <source src="" type="video/mp4">
-
-    </video>
-</div>--%>
-
     <div class="login-container">
         <div class="image-container"></div> <!-- Image on the left -->
         <div class="form-container">
-            <form>
+            <form action="Login" method="post">
                 <div class="login-title">Novel Escape Book Shop</div>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
@@ -159,10 +152,10 @@
                     Accusamus eaque facere labore pariatur praesentium quidem rem repellat ut veniam! Adipisci expedita
                     itaque nam quidem quod tempore, ullam? <br>Lorem ipsum dolor sit amet,
                 </p>
-                <input type="text" class="form-control" placeholder="Name" required>
-                <input type="password" class="form-control" placeholder="Password" required> <br>
-                <a href="CustomerSave.jsp" class="btn btn-login">Login</a>
-                <button type="submit" class="btn btn-login" href="Customer.jsp">Login</button>
+                <input type="text" class="form-control" placeholder="Name" name="userName" required>
+                <input type="password" class="form-control" placeholder="Password" name="password" required> <br>
+                <%--<a href="AdminDashboard.jsp" class="btn btn-login">Login</a>--%>
+                <button type="submit" class="btn btn-login">Login</button>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
                     eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!
@@ -174,7 +167,6 @@
                 <div class="register-link">
                     Don't you have an account? <a href="AdminDashboard.jsp">Register here</a>
                 </div>
-
             </form>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.example.e_commerce_web_application_assignment_01.DTO.User" %><%--
   Created by IntelliJ IDEA.
   User: erandi
   Date: 1/18/25
@@ -132,6 +132,16 @@
 
 </head>
 <body>
+
+<%--
+<%
+    User user = (User) session.getAttribute("user");
+    if (user ==  null || !"Admin".equals(user.getRole())){
+        response.sendRedirect("AdminDashboard.jsp");
+    }
+%>
+--%>
+
 <div class="sidebar" id="sidebar">
     <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">&times;</a>
     <br><br><br>

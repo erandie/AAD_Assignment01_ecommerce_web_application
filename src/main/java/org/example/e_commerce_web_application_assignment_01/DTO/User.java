@@ -20,5 +20,10 @@ public class User {
     @Getter
     private String imagePath;
 
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
     /*private String password;*/
 }
