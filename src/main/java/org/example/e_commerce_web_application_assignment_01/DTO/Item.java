@@ -18,4 +18,12 @@ public class Item {
     private int qty;
     private String imagePath;
 
+    public Item(int product_id, String name, String description, Double amount, int qty) {
+        this.product_id = product_id;
+        this.name = name;
+        this.description = description;
+        this.amount = amount;
+        this.qty = qty;
+    }
+
 }

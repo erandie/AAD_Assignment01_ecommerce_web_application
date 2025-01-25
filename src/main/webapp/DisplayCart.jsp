@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -35,7 +36,7 @@
     <tr>
         <td><%= item.getProduct_name()%></td>
         <td>
-            <form action="UpdateCartServlet" method="post">
+            <form action="CartHandle" method="post">
                 <input type="number" name="quantity" value="<%= item.getQuantity()%>" min="1">
                 <input type="hidden" name="product_id" value="<%= item.getProduct_id() %>">
                 <button type="submit"> Update </button>
@@ -57,7 +58,7 @@
 </table>
 
 <h3> Total: <%= cart.getTotalPrice() %></h3>
-<a href="checkout.jsp">Proceed To Checkout!</a>
+<a href="checkout.jsp">Place Order</a>
 
 <%
     } else {

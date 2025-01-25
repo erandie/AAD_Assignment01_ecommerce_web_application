@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <h1> Product in category</h1>
@@ -27,6 +28,13 @@
     <p> Price: $<%= item.getAmount() %></p>
     <p> Quantity: <%= item.getQty() %></p>
     <a href="LoadAllItems.jsp?product_id=<%= item.getProduct_id() %>"> View Details</a>
+
+    <form action="<%= request.getContextPath() %>/AddToCartServlet" method="post">
+        <input type="hidden" name="product_id" value="<%= item.getProduct_id() %>">
+        <input type="number" name="quantity" value="1" min="1">
+        <button type="submit">Add To Cart</button>
+    </form>
+
 
 </div>
 
