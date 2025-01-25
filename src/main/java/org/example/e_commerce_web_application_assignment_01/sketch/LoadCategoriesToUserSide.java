@@ -1,4 +1,4 @@
-package org.example.e_commerce_web_application_assignment_01.AdminFeatures.Category;
+package org.example.e_commerce_web_application_assignment_01.sketch;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

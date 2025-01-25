@@ -2,6 +2,7 @@ package org.example.e_commerce_web_application_assignment_01.AdminFeatures.Cart;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@WebServlet(name = "CartServlet", value = "/CartServlet")
 public class CartServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

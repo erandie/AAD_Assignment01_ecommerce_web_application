@@ -1,4 +1,4 @@
-package org.example.e_commerce_web_application_assignment_01.AdminFeatures.Cart;
+package org.example.e_commerce_web_application_assignment_01.sketch;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,8 +10,6 @@ import org.example.e_commerce_web_application_assignment_01.DTO.Item;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @WebServlet(name = "AddToCartServlet", value = "/AddToCartServlet")
 public class AddToCartServlet extends HttpServlet {
@@ -48,7 +46,7 @@ public class AddToCartServlet extends HttpServlet {
             req.getSession().setAttribute("cart", cart);
         }
 
-        CartItem cartItem = new CartItem(item.getProduct_id(), item.getName(), item.getQty(), item.getAmount());
+        CartItem cartItem = new CartItem(item.getProduct_id(), item.getName(), item.getAmount(), item.getQty());
         cart.addItem(cartItem);
 
         resp.sendRedirect("DisplayCart.jsp");

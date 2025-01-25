@@ -1,4 +1,4 @@
-package org.example.e_commerce_web_application_assignment_01.AdminFeatures.Cart;
+package org.example.e_commerce_web_application_assignment_01.sketch;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,9 +16,9 @@ public class CartHandle extends HttpServlet {
         items.put(item.getProduct_id(), item);
     }
 
-    public void addUser(CartItem user){
-        items.put(user.getUser_id(), user);
-    }
+   /* public void addUser(CartItem user){
+        items.put(user.ge(), user);
+    }*/
 
     public void updatedItemQuantity(int product_id, int quantity){
         CartItem item = items.get(product_id);

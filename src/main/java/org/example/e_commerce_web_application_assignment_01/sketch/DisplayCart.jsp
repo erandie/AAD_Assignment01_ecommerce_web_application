@@ -1,4 +1,4 @@
-<%@ page import="org.example.e_commerce_web_application_assignment_01.AdminFeatures.Cart.CartHandle" %>
+<%@ page import="org.example.e_commerce_web_application_assignment_01.sketch.CartHandle" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="org.example.e_commerce_web_application_assignment_01.DTO.CartItem" %><%--
   Created by IntelliJ IDEA.
