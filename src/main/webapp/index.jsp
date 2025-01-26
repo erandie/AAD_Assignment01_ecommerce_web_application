@@ -130,6 +130,24 @@
             text-decoration: underline;
         }
 
+        .btn-login {
+            background-color: #76513d;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-login:hover {
+            background-color: #5a3d28;
+        }
+
+
     </style>
 </head>
 <body>
@@ -155,7 +173,8 @@
                 <input type="text" class="form-control" placeholder="Name" name="userName" required>
                 <input type="password" class="form-control" placeholder="Password" name="password" required> <br>
                 <%--<a href="AdminDashboard.jsp" class="btn btn-login">Login</a>--%>
-                <button type="submit" class="btn btn-login">Login</button>
+                <%--<button type="submit" class="btn btn-login">Login</button>--%>
+                <a href="AdminDashboard.jsp" class="btn btn-login">Login :)</a>
 
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
@@ -166,7 +185,7 @@
                 </p>
 
                 <div class="register-link">
-                    Don't you have an account? <a href="AdminDashboard.jsp">Register here</a>
+                    Don't you have an account? <a href="UserAuthentication.jsp">Register here</a>
                 </div>
             </form>
         </div>

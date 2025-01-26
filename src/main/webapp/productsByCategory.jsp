@@ -15,8 +15,8 @@
         body {
             font-family: 'Georgia', cursive;
             background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.7),
-                    rgba(0, 0, 0, 0.7)
+                    rgba(0, 0, 0, 0.8),
+                    rgba(0, 0, 0, 0.8)
             ),
             url('https://i.pinimg.com/originals/6b/12/c4/6b12c49e57cc55c3c8f6f5a49b09f561.jpg'); /* Background image */
             background-size: cover;

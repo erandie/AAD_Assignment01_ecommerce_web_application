@@ -21,10 +21,10 @@
         body {
             font-family: 'Georgia', cursive;
             background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.6), /* Dark shadow effect */
-                    rgba(0, 0, 0, 0.6)
+                    rgba(0, 0, 0, 0.8), /* Dark shadow effect */
+                    rgba(0, 0, 0, 0.8)
             ),
-            url('https://i.pinimg.com/736x/55/79/bd/5579bd7189fac6e978d6ca84fd563931.jpg'); /* Replace with your image URL */
+            url('https://i.pinimg.com/736x/ee/c3/59/eec359fcd55568e8522942d5938da6cf.jpg'); /* Replace with your image URL */
             background-size: cover;
             background-color: #280101;
             padding-bottom: 100px;
@@ -290,11 +290,6 @@
         </form>
     </div>
 
-
-    <!-- Image on the right -->
-        <div class="col-md-6">
-            <img src="https://i.pinimg.com/736x/7d/7b/c7/7d7bc7c585304f69c3c767d04e7935ea.jpg" alt="Image" class="img-fluid">
-        </div>
 
     </div>
 
