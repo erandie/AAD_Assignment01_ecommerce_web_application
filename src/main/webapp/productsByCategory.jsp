@@ -27,7 +27,7 @@
     <p><%= item.getDescription()%></p>
     <p>Price: $<%= item.getAmount() %></p>
     <p>Quantity: <%= item.getQty() %></p>
-    <a href="LoadAllItems.jsp?product_id=<%= item.getProduct_id() %>">View Details</a>
+    <a href="LoadAllItems?product_id=<%= item.getProduct_id() %>">View Details</a>
 
     <!-- Add to Cart Form -->
     <form action="<%= request.getContextPath() %>/CartServlet" method="post">

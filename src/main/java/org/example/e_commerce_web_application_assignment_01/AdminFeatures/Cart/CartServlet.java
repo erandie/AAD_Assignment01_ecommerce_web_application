@@ -18,8 +18,6 @@ import java.util.List;
 public class CartServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private List<CartItem> cart = new ArrayList<>();
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -31,7 +29,7 @@ public class CartServlet extends HttpServlet {
         }
 
         req.setAttribute("cart", cart);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("cart.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("AddToCart.jsp");
         dispatcher.forward(req, resp);
     }
 

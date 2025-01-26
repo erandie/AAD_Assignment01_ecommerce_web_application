@@ -1,3 +1,4 @@
+/*
 package org.example.e_commerce_web_application_assignment_01.AdminFeatures.Cart;
 
 import jakarta.servlet.ServletException;
@@ -22,7 +23,8 @@ public class UpdateCartServlet extends HttpServlet {
             cart.updatedItemQuantity(product_id, quantity);
         }
 
-
+resp
         resp.sendRedirect("DisplayCart.jsp");
     }
 }
+*/
