@@ -20,7 +20,7 @@ public class User {
     @Getter
     private String imagePath;
 
-    public User(int user_id, String userName, String password, String email, int role, String s) {
+    public User(int user_id, String userName, String email, String phoneNumber, String role) {
         this.userName = userName;
         this.password = password;
     }

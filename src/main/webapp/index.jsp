@@ -156,6 +156,7 @@
                 <input type="password" class="form-control" placeholder="Password" name="password" required> <br>
                 <%--<a href="AdminDashboard.jsp" class="btn btn-login">Login</a>--%>
                 <button type="submit" class="btn btn-login">Login</button>
+
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque commodi, corporis dolorum ea
                     eius eveniet, explicabo facilis illum incidunt maiores nostrum odit provident quidem sint sit unde!

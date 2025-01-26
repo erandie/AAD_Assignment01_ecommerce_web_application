@@ -144,6 +144,7 @@
     <a href="ViewProducts.jsp">View Products</a><br>
     <a href="userProfile.jsp">View User Profiles</a><br>
     <a href="AddToCartServlet">Cart</a><br>
+    <a href="PlaceOrderServlet">Place Order</a><br>
 </div>
 
 <div class="content" id="content">

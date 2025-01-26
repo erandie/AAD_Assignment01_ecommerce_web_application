@@ -18,7 +18,7 @@ public class Item {
     private int qty;
     private String imagePath;
 
-    public Item(int product_id, String name, String description, Double amount, int qty) {
+    public Item(int product_id, String name, Double amount) {
         this.product_id = product_id;
         this.name = name;
         this.description = description;

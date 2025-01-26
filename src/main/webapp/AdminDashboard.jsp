@@ -93,12 +93,12 @@
     <br><br><br>
     <a href="ItemSave.jsp">Product Management</a><br>
     <a href="CategorySave.jsp">Category Management</a><br>
-    <a href="#">Order Management</a><br>
+    <a href="PlaceOrderServlet">Place Order</a><br>
     <a href="UserAuthentication.jsp">User Management</a><br>
     <a href="CategoryProfileServlet">View Categories</a><br>
-    <a href="ViewProducts.jsp">View Products</a><br>
     <a href="userProfile.jsp">View User Profiles</a><br>
     <a href="AddToCartServlet">Cart</a><br>
+
 
     <ul class="category-list">
         <li><a href="#">Novels</a></li>
