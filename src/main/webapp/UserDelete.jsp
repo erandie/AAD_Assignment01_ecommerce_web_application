@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: erandi
-  Date: 1/22/25
-  Time: 12:32 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,24 +6,105 @@
 
     <style>
         body {
+            font-family: 'Georgia', cursive;
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.6)
+            ),
+            url('https://i.pinimg.com/736x/55/79/bd/5579bd7189fac6e978d6ca84fd563931.jpg'); /* Replace with your image URL */
+            background-size: cover;
             background-color: #280101;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background: linear-gradient(85deg, #280101 10%, #5e3f2f 100%);
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
         }
 
         .register-title {
             text-align: center;
             margin-bottom: 20px;
+            color: #280101;
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(241, 239, 239, 0.4);
         }
-        form {
-            width: 100%;
-            /*background-color: brown;*/
+
+        .form-control {
+            border-radius: 20px;
+            background-color: #76513d;
+            color: #280101;
+            box-shadow: 2px 2px 5px rgba(3, 5, 8, 0.4);
+            border: none;
+            transition: all 0.3s ease;
 
         }
+
+        .form-control:focus {
+            background-color: #76513d;
+            color: #280101;
+            transform: scale(1.03);
+            box-shadow: 0 0 5px 2px rgba(3, 5, 8, 0.4);
+        }
+
+        .btn-primary {
+            background-color: #280101;
+            border-color: #280101;
+            font-size: 18px;
+            color: white;
+            border-radius: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #5e3f2f;
+            border-color: #5e3f2f;
+        }
+
         .row {
             display: flex;
             justify-content: space-between;
             width: 95%;
         }
 
+        a {
+            color: #280101;
+            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        a:hover {
+            color: #5e3f2f;
+        }
+
+        h2 {
+            color: #280101;
+            text-shadow: 2px 2px 4px rgba(241, 239, 239, 0.4);
+            font-weight: bold;
+            font-family: 'Georgia', cursive;
+            font-size: 40px;
+        }
+
+        .row .col-sm-10 {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
     </style>
 
 </head>
@@ -41,43 +115,44 @@
     String error = request.getParameter("error");
 %>
 
-<%
-    if (message != null) {
-%>
+<div class="container">
+    <div class="delete-container">
 
-<div style="color: green"> <%=message%> </div>
+        <%
+            if (message != null) {
+        %>
+        <div class="message" style="color: green;"> <%=message%> </div>
+        <%
+            }
+        %>
 
-<% } %>
+        <%
+            if (error != null) {
+        %>
+        <div class="message" style="color: red;"> <%=error%> </div>
+        <%
+            }
+        %>
 
-<%
-    if (error != null) {
-%>
+        <form action="delete_user" method="post">
+            <h2 class="register-title">Delete User</h2>
 
-<div style="color: red"> <%=error%> </div>
-<%
-    }
-%>
+            <div class="row mb-3">
+                <label for="id" class="col-sm-2 col-form-label" style="color: #634343; font-size: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);">User ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="id" name="user_id" placeholder="Enter user ID">
+                </div>
+            </div>
 
-
-<form action="delete_user" method="post">
-    <h1 class="register-title">Delete User</h1>
-
-    <!-- Name -->
-    <div class="row mb-3">
-        <label for="id" class="col-sm-2 col-form-label">ID</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="id" name="user_id" placeholder="Enter user ID:">
-        </div>
+            <div class="row btn-container">
+                <div class="col-sm-10 offset-sm-2">
+                    <a href="LoadAllUsers">View All Users</a>
+                    <button type="submit" class="btn btn-primary">Delete User</button>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <div class="row">
-        <div class="col-sm-10 offset-sm-2">
-            <button type="submit" class="btn btn-primary">Delete</button>
-            <a href="LoadAllUsers"> All Users </a>
-        </div>
-    </div>
-
-</form>
+</div>
 
 </body>
 </html>

@@ -10,8 +10,20 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CartItem {
+   private int id;
    private int product_id;
    private String product_name;
-   private Double price;
+   private double price;
    private int quantity;
+   @Getter
+   @Setter
+   private double total_price;
+   private int user_id;
+
+   public CartItem(int productId, String productName, double price, int quantity) {
+
+   }
+
+   // Constructor, getters and setters
+
 }

@@ -13,56 +13,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<style>
-    body{
-        background-color: red;
-    }
-</style>
-
 <body>
 <h2> Your Cart! </h2>
-<table>
+<table class="table table-bordered">
+    <thead>
     <tr>
-        <th> Product Name </th>
-        <th> Price </th>
-        <th> Quantity </th>
-        <th> Total </th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Actions</th>
     </tr>
-
+    </thead>
+    <tbody>
     <c:forEach var="item" items="${cart}">
         <tr>
-            <td>${item.product_name}</td>
-            <td>${item.price}</td>
+            <td>${item.productName}</td>
+            <td>$${item.price}</td>
             <td>${item.quantity}</td>
-            <td>${item.total_price}</td>
+            <td>$${item.total_price}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cartModal"
+                        data-product-id="${item.productId}" data-product-name="${item.productName}"
+                        data-product-price="${item.price}" data-product-quantity="${item.quantity}">
+                    Update
+                </button>
+                <form action="RemoveProductFromCart" method="post" class="d-inline-block">
+                    <input type="hidden" name="productId" value="${item.productId}">
+                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                </form>
+            </td>
         </tr>
     </c:forEach>
+
+    </tbody>
+
 </table>
 
-<form action="<%= request.getContextPath() %>/CartServlet" method="post">
-    <input type="hidden" name="action" value="placeOrder">
-    <button type="submit" class="btn btn-primary">Place Order</button>
-</form>
 
-<h3>Products Available</h3>
-<div id="product-list">
-    <c:forEach var="item" items="${productList}">
-        <div class="product-cart">
-            <img src="<%= request.getContextPath() + "/" + item.getImagePath() %>" alt="${item.getName()}" />
-            <h4>${item.getName()}</h4>
-            <p>${item.getDescription()}</p>
-            <p>Price: $${item.getAmount()}</p>
-            <p>Quantity: ${item.getQty()}</p>
-            <form action="<%= request.getContextPath() %>/CartServlet" method="post">
-                <input type="hidden" name="product_id" value="${item.getProduct_id()}" />
-                <input type="hidden" name="product_name" value="${item.getName()}" />
-                <input type="hidden" name="price" value="${item.getAmount()}" />
-                <input type="number" name="quantity" value="1" min="1" />
-                <button type="submit" class="btn btn-success" name="action" value="addToCart">Add to Cart</button>
-            </form>
-        </div>
-    </c:forEach>
-</div>
 
 </body>
 </html>

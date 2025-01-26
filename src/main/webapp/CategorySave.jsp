@@ -13,13 +13,24 @@
 
     <style>
         body {
+            font-family: 'Georgia', cursive;
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.6)
+            ),
+            url('https://i.pinimg.com/736x/55/79/bd/5579bd7189fac6e978d6ca84fd563931.jpg'); /* Replace with your image URL */
+            background-size: cover;
             background-color: #280101;
-            padding-bottom: 100px;
-            padding-top: 50px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
 
         .card {
-            background-color: #592222;
+            background: linear-gradient(85deg, #280101 10%, #5e3f2f 100%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             color: white;
             border-radius: 10px;
             padding: 25px 50px 50px;
@@ -33,13 +44,18 @@
         }
 
         h2 {
-            color: white;
+            color: #280101;
+            text-shadow: 2px 2px 4px rgba(241, 239, 239, 0.4);
+            font-weight: bold;
+            font-family: 'Georgia', cursive;
+            font-size: 40px;
         }
 
         .form-control {
-            border-radius: 20px;
-            transition: transform 0.2s ease;
-            /*opacity: 85%;*/
+            background-color: #76513d;
+            color: #280101;
+            transform: scale(1.03);
+            box-shadow: 0 0 5px 2px rgba(3, 5, 8, 0.4);
         }
 
         .custom-btn {
@@ -69,66 +85,95 @@
             display: block;
         }
 
+        input[type="file"]::file-selector-button {
+            background-color: #76513d;
+            color: #280101;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            box-shadow: 2px 2px 5px rgba(3, 5, 8, 0.4);
+            cursor: pointer;
+        }
+
+        /* Optional: Hover effect for the button */
+        input[type="file"]::file-selector-button:hover {
+            background-color: #5e3f2f;
+        }
+
+        .btn.btn-primary {
+            color: white; /* White text color */
+            background-color: #280101; /* Background color of the button */
+            border-color: #280101; /* Border color of the button */
+            font-size: 18px;
+        }
+
+        .btn.btn-primary:hover {
+            background-color: #5e3f2f; /* Hover background color */
+            border-color: #5e3f2f; /* Hover border color */
+        }
+
     </style>
 
 </head>
 <body>
 
-<%
-    String message = request.getParameter("message");
-    String error = request.getParameter("error");
-%>
-
-<%
-    if (message != null) {
-%>
-
-<div style="color: green"> <%=message%> </div>
-
-<% } %>
-
-<%
-    if (error != null) {
-%>
-
-<div style="color: red"> <%=error%></div>
-
-<%
-    }
-%>
 
 <div id="manageItems" class="container active mt-5">
     <div class="card">
+        <%
+            String message = request.getParameter("message");
+            String error = request.getParameter("error");
+        %>
+
+        <%
+            if (message != null) {
+        %>
+
+        <div style="color: green"> <%=message%> </div>
+
+        <% } %>
+
+        <%
+            if (error != null) {
+        %>
+
+        <div style="color: red"> <%=error%></div>
+
+        <%
+            }
+        %>
+
         <form action="CategorySave" method="post" enctype="multipart/form-data">
 
-            <h2 class="text-center">Manage Categories</h2> <br>
+            <h2 class="text-center">Add Book Category</h2> <br>
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="name-inputt-02" class="itemName">Category Name</label>
-                    <input id="name-inputt-02" type="text" class="form-control" name="category_name" placeholder="Category Name">
+                    <label for="name-inputt-02" class="itemName" style="color: #634343; font-size: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);">Category Name</label>
+                    <input id="name-inputt-02" type="text" class="form-control" name="category_name" placeholder="Category Name" style="background-color: #76513d; border: none; box-shadow: 2px 2px 5px rgba(3, 5, 8, 0.4); color: #280101FF">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="desc-inputt-02" class="itemId">Category Description</label>
-                    <input id="desc-inputt-02" type="text" class="form-control" placeholder="Category Description" name="description">
+                    <label for="desc-inputt-02" class="itemId" style="color: #280101; font-size: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);">Category Description</label>
+                    <input id="desc-inputt-02" type="text" class="form-control" placeholder="Category Description" name="description" style="background-color: #76513d; border: none; box-shadow: 2px 2px 5px rgba(3, 5, 8, 0.4); color: #280101FF">
                 </div>
                 <%--Profile Image--%>
                 <div class="row mb-3">
-                    <label for="category_image" class="col-sm-2 col-form-label">Category Image</label>
+                    <label for="category_image" class="col-sm-2 col-form-label" style="color: #634343; font-size: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);">Category Image</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" id="category_image" name="category_image" required>
+                        <input type="file" class="form-control" id="category_image" name="category_image" required
+                               style="background-color: #76513d; color: #280101; border: none; box-shadow: 2px 2px 5px rgba(3, 5, 8, 0.4);">
                     </div>
                 </div>
             </div>
 
             <div class="d-flex justify-content-end mt-3">
-                <a href="LoadCategoryTable"> All Categories </a> <br>
-                <a href="update_category"> Update Categories </a>
-                <a href="delete_category"> Delete Categories </a>
-                <a href="CategoryProfileServlet"> view Categories </a>
+                <a href="LoadCategoryTable" class="btn btn-link text-decoration-none" style="color: #280101; font-size: 18px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);"> All Categories </a> <br>
+                <a href="update_category" class="btn btn-link text-decoration-none" style="color: #280101; font-size: 18px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);"> Update Categories </a>
+                <a href="delete_category" class="btn btn-link text-decoration-none" style="color: #280101; font-size: 18px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);"> Delete Categories </a>
+                <a href="CategoryProfileServlet" class="btn btn-link text-decoration-none" style="color: #280101; font-size: 18px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);"> view Categories </a>
                 <div class="row">
                     <div class="col-sm-10 offset-sm-2">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary" style="font-size: 18px;">Save Category :)</button>
                     </div>
                 </div>
             </div>
