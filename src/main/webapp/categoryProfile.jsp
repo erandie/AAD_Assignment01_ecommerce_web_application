@@ -71,6 +71,54 @@
             margin-top: 20px;
         }
 
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Initially hidden to the left */
+            height: 100%;
+            width: 250px;
+            background-color: #343a40;
+            padding-top: 20px;
+            transition: left 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+        .sidebar.open {
+            left: 0; /* Sidebar slides in */
+        }
+
+        .sidebar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .icon-button {
+            font-size: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+        }
+
+        /* Content styles */
+        .content {
+            transition: filter 0.3s ease;
+            padding: 20px;
+
+        }
+
+        .content.blur {
+            filter: blur(5px); /* Apply blur effect to content */
+        }
+
         .no-image {
             height: 200px;
             background-color: rgba(255, 255, 255, 0.1);
@@ -84,6 +132,26 @@
     </style>
 </head>
 <body>
+
+<div class="sidebar" id="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">&times;</a>
+    <br><br><br>
+    <a href="ItemSave.jsp">Product Management</a><br>
+    <a href="CategorySave.jsp">Category Management</a><br>
+    <a href="#">Order Management</a><br>
+    <a href="UserAuthentication.jsp">User Management</a><br>
+    <a href="CategoryProfileServlet">View Categories</a><br>
+    <a href="ViewProducts.jsp">View Products</a><br>
+    <a href="userProfile.jsp">View User Profiles</a><br>
+    <a href="AddToCartServlet">Cart</a><br>
+</div>
+
+<div class="content" id="content">
+    <!-- Icon Button -->
+    <span class="icon-button" onclick="toggleSidebar()">&#9776;</span>
+</div>
+
+
 <form action="CategoryProfileServlet" method="get">
     <div class="container">
         <h1 class="text-center">Our Categories</h1>
@@ -129,5 +197,18 @@
         </div>
     </div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var content = document.getElementById('content');
+        sidebar.classList.toggle('open');
+        content.classList.toggle('blur');
+    }
+</script>
+
+
 </body>
 </html>

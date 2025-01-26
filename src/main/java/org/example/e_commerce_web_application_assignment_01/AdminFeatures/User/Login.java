@@ -1,3 +1,4 @@
+/*
 package org.example.e_commerce_web_application_assignment_01.AdminFeatures.User;
 
 import jakarta.servlet.ServletException;
@@ -11,61 +12,77 @@ import java.io.IOException;
 import java.sql.*;
 
 @WebServlet(name = "Login", value = "/Login")
-public class Login extends HttpServlet {
-    String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
-    String DATABASE_USER = "root";
-    String DATABASE_PASSWORD = "Ijse@1234";
+public class LoginServlet extends HttpServlet {
+    private static final String DB_URL = "jdbc:mysql://localhost/ecommerce";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "Ijse@1234";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userName = req.getParameter("userName");
+        String userName = req.getParameter("user_name");
         String password = req.getParameter("password");
 
-        User user = null;
         try {
-            user = validateUser(userName, password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-        if (user != null) {
-           req.getSession().setAttribute("user", user);
+            String sql = "SELECT user_id, name, email, role, password, role FROM user WHERE userName = ?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setString(1, userName);
 
-           if ("Admin".equals(user.getRole())) {
-               resp.sendRedirect("AdminDashboard.jsp");
-           } else {
-               resp.sendRedirect("userDashboard.jsp");
-           }
-       } else {
-           req.setAttribute("errorMessage", "Invalid username or password!");
-           req.getRequestDispatcher("index.jsp").forward(req, resp);
-       }
-    }
+            ResultSet rs = pstm.executeQuery();
 
-    private User validateUser(String userName, String password) throws SQLException {
-        Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
-        String sql = "SELECT * FROM user WHERE userName = ? AND password = ?";
-        try (PreparedStatement statement = connection.prepareStatement(sql)){
-            statement.setString(1, userName);
-            statement.setString(2, password);
+            if (rs.next()) {
+                int user_id = rs.getInt("user_id");
+                String userName = rs.getString("userName");
+                String email = rs.getString("email");
+                int role = rs.getInt("role");
+                String password = rs.getString("password");
 
-            ResultSet resultSet = statement.executeQuery();
+                boolean isPasswordEncrypted = isPasswordEncrypted(storedPassword);
 
-            if (resultSet.next()) {
-                return new User(
-                        resultSet.getString("userName"),
-                        resultSet.getString("password")
-                );
+                if (isPasswordEncrypted) {
+                    if (PasswordUtil.checkPassword(password, storedPassword)) {
+                        User user = new User(id, userName, email, number, storedPassword, role);
+                        req.getSession().setAttribute("customer", customer);
+
+                        if ("customer".equals(role)) {
+                            resp.sendRedirect("customerDash.jsp");
+                        } else if ("admin".equals(role)) {
+                            resp.sendRedirect("dashboard.jsp");
+                        } else {
+                            resp.sendRedirect("login.jsp?error=Invalid role");
+                        }
+                    } else {
+                        resp.sendRedirect("login.jsp?error=Invalid name or password");
+                    }
+                } else {
+                    if (password.equals(storedPassword)) {
+                        User user = new User(user_id, name, userName, email, role, password);
+                        req.getSession().setAttribute("user", user);
+                        if ("user".equals(role)) {
+                            resp.sendRedirect("userDashboard.jsp");
+                        } else if ("admin".equals(role)) {
+                            resp.sendRedirect("AdminDashboard.jsp");
+                        } else {
+                            resp.sendRedirect("login.jsp?error=Invalid role");
+                        }
+                    } else {
+                        resp.sendRedirect("login.jsp?error=Invalid name or password");
+                    }
+                }
+            } else {
+                resp.sendRedirect("index.jsp?error=Invalid name or password");
             }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            resp.sendRedirect("index.jsp?error=An error occurred. Please try again.");
         }
-
-        return null;
-        }
-
     }
 
-
-
+    private boolean isPasswordEncrypted(String password) {
+        return password != null && password.matches("^\\$2[aby]\\$\\d{2}\\$[A-Za-z0-9./]{53}$");
+    }
+}
+*/

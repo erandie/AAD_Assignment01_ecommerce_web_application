@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Home!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -48,24 +49,6 @@
             background-color: #575757;
         }
 
-        .category-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .category-list li {
-            padding: 8px 0;
-        }
-
-        .category-list li a {
-            color: #ddd;
-            text-decoration: none;
-        }
-
-        .category-list li a:hover {
-            text-decoration: underline;
-        }
-
         .icon-button {
             font-size: 30px;
             cursor: pointer;
@@ -82,50 +65,13 @@
 
         }
 
-        .card{
-            height: 20vw;
-            width: 20vw;
-            background-color: saddlebrown;
-
-        }
-
         .content.blur {
             filter: blur(5px); /* Apply blur effect to content */
         }
 
-        .card-title{
-            color: black;
-            font-weight: bolder;
-        }
-
-        .card-text{
-            color: black;
-            font-weight: bolder;
-        }
-
-        .category-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: black;
-        }
-
-        .category-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .category-list li {
-            padding: 8px 0;
-        }
-
-        .category-list li a {
-            color: #343a40;
-            text-decoration: none;
-        }
-
-        .category-list li a:hover {
-            text-decoration: underline;
+        .container{
+            margin: 200px;
+            background-color: #5e3f2f;
         }
 
     </style>
@@ -168,6 +114,11 @@
 <div class="content" id="content">
     <!-- Icon Button -->
     <span class="icon-button" onclick="toggleSidebar()">&#9776;</span>
+</div>
+
+<div class="container">
+    <jsp:forward page="/CategoryProfileServlet" />
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
